@@ -1,0 +1,23 @@
+---
+interface Props {
+    title: string,
+    subtitle?: string,
+    size?: 'sm' | 'lg' | 'xl' | '2xl',
+}
+const { title, subtitle, size = 'default' } = Astro.props;
+
+const sizeMapping = {
+    sm: 'text-4xl sm:text-5xl',
+    lg: 'text-6xl sm:text-7xl',
+    xl: 'text-7xl sm:text-[5rem]',
+    '2xl': 'text-[6rem] sm:text-[7rem]',
+};
+
+const titleSizeClass = sizeMapping[size];
+const subtitleSizeClass = size === 'lg' ? 'text-sm' : 'text-lg';
+---
+
+<section class="flex flex-col items-center space-y-2">
+    <h1 class={`font-semibold ${titleSizeClass}`}>{title}</h1>
+    <p class={`font-mono ${subtitleSizeClass}`}>{subtitle}</p>
+</section>
