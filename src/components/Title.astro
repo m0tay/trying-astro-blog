@@ -4,7 +4,7 @@ interface Props {
     subtitle?: string,
     size?: 'sm' | 'lg' | 'xl' | '2xl',
 }
-const { title, subtitle, size = 'default' } = Astro.props;
+const { title, subtitle, size = 'sm' } = Astro.props;
 
 const sizeMapping = {
     sm: 'text-4xl sm:text-5xl',
